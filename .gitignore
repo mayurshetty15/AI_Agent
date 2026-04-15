@@ -1,0 +1,20 @@
+# Ignore Python artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Ignore local environment and secrets
+.env
+venv/
+*/venv/
+**/venv/
+
+# Ignore editor and OS files
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+
+# Ignore local git metadata outputs
+tracked_venv.txt
