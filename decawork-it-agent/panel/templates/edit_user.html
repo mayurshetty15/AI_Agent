@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Edit User: {{ user.name }}</h1>
+
+<form method="post">
+    <label for="name">Full Name:</label>
+    <input type="text" id="name" name="name" value="{{ user.name if not name else name }}" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" value="{{ user.email if not email else email }}" required>
+
+    <label for="role">Role:</label>
+    <select id="role" name="role" required>
+        <option value="">Select Role</option>
+        <option value="Admin" {% if (role or user.role) == 'Admin' %}selected{% endif %}>Admin</option>
+        <option value="Developer" {% if (role or user.role) == 'Developer' %}selected{% endif %}>Developer</option>
+        <option value="Designer" {% if (role or user.role) == 'Designer' %}selected{% endif %}>Designer</option>
+        <option value="Manager" {% if (role or user.role) == 'Manager' %}selected{% endif %}>Manager</option>
+        <option value="Viewer" {% if (role or user.role) == 'Viewer' %}selected{% endif %}>Viewer</option>
+    </select>
+
+    <label for="status">Status:</label>
+    <select id="status" name="status" required>
+        <option value="Active" {% if (status or user.status) == 'Active' %}selected{% endif %}>Active</option>
+        <option value="Inactive" {% if (status or user.status) == 'Inactive' %}selected{% endif %}>Inactive</option>
+    </select>
+
+    <button type="submit" class="btn btn-primary">Update User</button>
+    <a href="{{ url_for('users') }}" class="btn btn-secondary">Cancel</a>
+</form>
+{% endblock %}

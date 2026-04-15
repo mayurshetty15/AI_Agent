@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Dashboard</h1>
+
+<div class="stats">
+    <div class="stat-card">
+        <h2>{{ stats.total_users }}</h2>
+        <p>Total Users</p>
+    </div>
+    <div class="stat-card stat-active">
+        <h2>{{ stats.active_users }}</h2>
+        <p>Active Users</p>
+    </div>
+    <div class="stat-card stat-inactive">
+        <h2>{{ stats.inactive_users }}</h2>
+        <p>Inactive Users</p>
+    </div>
+</div>
+
+<div class="quick-actions">
+    <h2>Quick Actions</h2>
+    <a href="{{ url_for('create_user') }}" class="btn btn-primary">Create User</a>
+    <a href="{{ url_for('reset_password') }}" class="btn btn-secondary">Reset Password</a>
+    <a href="{{ url_for('licenses') }}" class="btn btn-secondary">Assign License</a>
+</div>
+
+<div class="activity">
+    <h2>Recent Activity</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Timestamp</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for entry in recent_activity %}
+            <tr>
+                <td>{{ entry.timestamp }}</td>
+                <td>{{ entry.action }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
