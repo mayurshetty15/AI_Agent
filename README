@@ -1,0 +1,5 @@
+Create User python agent.py "Create user mayur@example.com with password pass123" New user created
+Reset Password python agent.py "Reset password for mayur@example.com" Password reset to default123
+Check User python agent.py "Check if mayur@example.com exists" Returns if user exists
+
+https://www.loom.com/share/7f719d57346a449c8393b18099df1c25
